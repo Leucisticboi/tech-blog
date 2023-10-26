@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Milo's Code Chronicles</title>
 </head>
+
 <body>
-    
+
+    <div id="nav-bar">
+        <a href="/home" id="home-btn">
+            <button>Home</button>
+        </a>
+        {{#if logged_in}}
+        <button id="logout-btn">Logout</button>
+        {{else}}
+        <div id="login-signup">
+            <a href="/login">
+                <button>Log In</button>
+            </a>
+            <a href="/signup" id="signup-btn">
+                <button>Sign Up</button>
+            </a>
+        </div>
+        {{/if}}
+    </div>
+
+    <main>
+        {{{body}}}
+    </main>
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+
 </body>
+
 </html>
