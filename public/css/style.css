@@ -3,31 +3,27 @@ body {
     background-color: #f5a4c5; /* Darker pink background */
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Center items vertically */
-    align-items: center;
 }
 
 #nav-bar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background-color: #e06196; /* Same pink as the button */
     display: flex;
-    flex-direction: column;
-    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e06196;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     box-sizing: border-box;
-    border-radius: 0 10px 10px 0;
-  }
-  
+    margin-bottom: 40px;
+}
+
 #nav-bar button {
     padding: 10px;
-    margin-bottom: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #f5a4c5; /* Same pink as the button */
+    background-color: #f5a4c5;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -35,4 +31,39 @@ body {
 
 #nav-bar button:hover {
     background-color: #660f53;
+}
+
+#login-signup {
+    display: flex;
+    flex-direction: row;
+}
+
+#login-signup button {
+    margin: 5px;
+}
+
+main {
+    padding-top: 5%;
+}
+
+.blog-post {
+    width: 70%;
+    height: 15vh;
+    background-color: #f5a4c5;
+    border: 5px solid #e06196;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 60px auto 20px auto; /* Adjust margin-top to create space between the navbar and the blog post */
+    text-align: center;
+}
+
+/* Style the content within the blog post container */
+.blog-post h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    font-size: 16px;
+    line-height: 1.5;
 }
