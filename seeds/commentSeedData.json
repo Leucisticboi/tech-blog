@@ -1,0 +1,57 @@
+[
+    {
+      "text": "Great article! Responsive design is a must in today's web development.",
+      "username": "MichaelScott",
+      "post_id": 1
+    },
+    {
+      "text": "I'm just starting with web development. This post is really helpful!",
+      "username": "JimHalpert",
+      "post_id": 1
+    },
+  
+    {
+      "text": "React has made web development so much more enjoyable!",
+      "username": "CreedBratton",
+      "post_id": 2
+    },
+    {
+      "text": "I prefer Angular for larger projects. It offers great structure.",
+      "username": "TobyFlenderson",
+      "post_id": 2
+    },
+  
+    {
+      "text": "Security is a critical concern. Thanks for the tips!",
+      "username": "JimHalpert",
+      "post_id": 3
+    },
+    {
+      "text": "Do you recommend any specific security plugins or libraries?",
+      "username": "CreedBratton",
+      "post_id": 3
+    },
+  
+    {
+      "text": "Performance is key! Google's Lighthouse tool is handy for optimization.",
+      "username": "MichaelScott",
+      "post_id": 4
+    },
+    {
+      "text": "I struggled with slow loading times before. These tips are a game-changer!",
+      "username": "JimHalpert",
+      "post_id": 4
+    },
+  
+    {
+      "text": "Git is a lifesaver when collaborating on projects. Can't imagine coding without it.",
+      "username": "CreedBratton",
+      "post_id": 5
+    },
+    {
+      "text": "I use Git for both personal and team projects. It's versatile!",
+      "username": "CreedBratton",
+      "post_id": 5
+    }
+]
+  

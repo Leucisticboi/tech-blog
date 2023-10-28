@@ -1,3 +1,56 @@
-<div class="blog-post">
-    
+{{#if logged_in}}
+<div class="container">
+    {{#each posts}}
+        <div class="card my-4">
+            <div class="card-header" style="background-color: #f5a4c5">
+                <h5 class="card-title my-3" style="color: white">{{this.dataValues.title}}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row ">
+                    <a class="link-offset-1">{{this.dataValues.username}}</a>
+                    <p class="fw-lighter">{{this.dataValues.createdAt}}</p>
+                </div>
+                <p class="card-text my-3">{{this.dataValues.text}}</p>
+            </div>
+            <div class="card-footer bg-white">
+                <div class="row">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="New comment" aria-label="New comment" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Comment</button>
+                    </div>
+                    <div class="container">
+                        <p>Here's one comment</p>
+                        <p>Here's another comment!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
 </div>
+{{else}}
+<div class="container">
+    {{#each posts}}
+        <div class="card my-4">
+            <div class="card-header" style="background-color: #e06196">
+                <h5 class="card-title my-3" style="color: white">{{this.dataValues.title}}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row ">
+                    <a class="link-offset-1">{{this.dataValues.username}}</a>
+                    <p class="fw-lighter">{{this.dataValues.createdAt}}</p>
+                </div>
+                <p class="card-text my-3">{{this.dataValues.text}}</p>
+            </div>
+            <div class="card-footer" style="background-color: #f5a4c5;">
+                <div class="row">
+                    <div class="ms-auto p-2">
+                        <a href="/login">
+                            <button class="btn btn-outline-light align-self-center">Comments</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
+{{/if}}
