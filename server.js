@@ -10,10 +10,10 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const sess = {
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || 'Super secret secret',
     cookie: {},
     resave: false,
     saveUninitialized: true,
@@ -25,22 +25,18 @@ const sess = {
 Session.sync();
 
 const hbs = exphbs.create({
-    // Specify default layout file
     defaultLayout: 'main',
-    // Specify layouts directory
     layoutsDir: path.join(__dirname, 'views/layouts'),
-
     extname: '.hbs',
 });
 
 app.use(session(sess));
 
-// Set up Handlebars as the view engine
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);

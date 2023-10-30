@@ -3,16 +3,20 @@
         <h5 class="text-center" style="color: white">Log In</h5>
     </div>
     <div class="card-body">
-        <form class="d-grid">
+        <form class="d-grid" id="loginForm">
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="username" class="form-control" id="username-login">
+                <label for="username-login">Username:</label>
+                <input type="text" id="username-login" name="username" class="form-control" required>
             </div>
+
             <div class="mb-3">
-                <label for="password-login" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password-login">
+                <label for="password-login">Password:</label>
+                <input type="text" id="password-login" name="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn" style="background-color:#f5a4c5; color: white" id="login-btn">Submit</button>
+            
+            <button type="submit" class="btn" style="background-color:#f5a4c5; color: white" id="submit">Submit</button>
         </form>
     </div>
 </div>
+
+<script src="/js/login.js"></script>

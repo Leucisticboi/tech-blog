@@ -24,4 +24,13 @@ router.get('/login', async (req, res) => {
     }
 });
 
+router.get('/signup', async (req, res) => {
+    try {
+        res.render('signup');
+    } catch (error) {
+        console.error(error);
+        res.status(400).send('Could not log in');
+    }
+});
+
 module.exports = router;
