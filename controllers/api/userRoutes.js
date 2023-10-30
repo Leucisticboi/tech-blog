@@ -4,6 +4,7 @@ const { User } = require('../../models');
 // New User
 router.post('/signup', async (req, res) => {
     try {
+        console.log('Request received')
         if(req.body.password !== req.body.confirmPassword) {
             res.status(400).json({ message: 'Passwords do not match' });
             return;
@@ -24,6 +25,7 @@ router.post('/signup', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
+        console.log('Reqeuest received')
         const userData = await User.findOne({ where: { username: req.body.username } });
 
         if(!userData) {
@@ -31,7 +33,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        const validPassword = await userData.checkPassword(req.body.password);
+        const validPassword = userData.checkPassword(req.body.password);
 
         if(!validPassword) {
             res.status(400).json({ message: 'Incorrect username or password!' });
@@ -44,6 +46,8 @@ router.post('/login', async (req, res) => {
 
             res.json({ user: userData, message: 'Logged in'});
         });
+
+        res.render('/');
 
     } catch (err) {
         res.status(400).json(err);
