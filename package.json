@@ -9,6 +9,7 @@
     "seed": "node seeds/index.js",
     "dependencies": "npm i bcrypt && npm i connect-session-sequelize && npm i dotenv && npm i express && npm i express express-handlebars && npm i express express-session && npm i express handlebars && npm i mysql2 && npm i sequelize",
     "add": "git add .",
+    "commit": "git commit -m 'example commit message'",
     "push": "git push origin main"
   },
   "keywords": [],
