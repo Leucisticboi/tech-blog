@@ -11,14 +11,13 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Sets up session and connect to our Sequelize db
 const sess = {
-  secret: 'Super secret secret',
+  secret: 'Super Duper Secret Secret',
   cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
+    db: sequelize,
   }),
 };
 
@@ -36,9 +35,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () =>
-    console.log(
-      `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
-    )
-  );
+  app.listen(PORT, () => console.log(`App now listening on port: ${PORT}`));
 });
