@@ -1,0 +1,84 @@
+html,
+body {
+  height: 100%;
+}
+
+html,
+body,
+input,
+textarea,
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #e06196;
+  padding: 15px;
+}
+
+
+#home-btn,
+#login-btn,
+#logout-btn,
+#user-btn {
+  width: 100%;
+  color: #e06196;
+  border-color: #f5a4c5;
+  background-color: white;
+  border-width: 3px;
+  border-style: solid;
+  margin: 10%;
+  padding: 10%;
+}
+
+#home-btn:hover,
+#login-btn:hover,
+#logout-btn:hover,
+#user-btn:hover {
+  color: white;
+  background-color: #f5a4c4;
+}
+
+#blog-post {
+  border-color: #f5a4c5;
+  border-width: 3px;
+  border-bottom-style: solid;
+  padding: 2%;
+}
+
+#blog-title,
+#blog-title a {
+  color: #e06196;
+}
+
+#recent-posts,
+#pinned-posts {
+  margin-top: 8%;
+}
+
+#login-form {
+  padding: 10%;
+}
+
+@media (min-width: 768px) {
+  #sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 180px;
+    height: 100%;
+    padding-top: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  #content {
+    margin-left: 180px;
+  }
+}

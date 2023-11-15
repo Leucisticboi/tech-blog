@@ -1,15 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-
-  <main>
-    {{{ body }}}
-  </main>
-</body>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+    <title>Tech Time</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <div class="mui--text-light mui--text-display1 mui--align-vertical">Tech Time</div>
+      {{#if loggedIn}}
+      <button id="home-btn" onclick="window.location.href = '#logout';">
+        Logout
+      </button>
+      <button id="user-btn" onclick="window.location.href = '/profile';">
+        {{username}}
+      </button>
+      <div class="sidebar-btns">
+        <a id="logout-btn" href="#logout">Logout</a>
+        <a id="user-btn" href="/profile">{{username}}</a>
+      </div>
+      {{else}}
+      <button id="home-btn" onclick="window.location.href = '/';">
+        Home
+      </button>
+      <button id="login-btn" onclick="window.location.href = '/login';">
+        Login
+      </button>
+      {{/if}}
+    </div>
+    <div id="content" class="mui-container-fluid">
+      {{{body}}}
+    </div>
+    <div class=""></div>
+  </body>
 </html>

@@ -32,13 +32,14 @@ Comment.init(
         key: 'id',
       },
     },
-    timestamp: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.literal('CURRENT_TIMESTAMP'),
-    },
+    // timestamp: {
+    //   type: DataTypes.DATE,
+    //   defaultValue: DataTypes.literal('CURRENT_TIMESTAMP'),
+    // },
   },
   {
     sequelize,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'comment'
