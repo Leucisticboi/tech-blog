@@ -15,10 +15,10 @@ Comment.init(
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        maxLen: [250],
+        len: [1, 250],
       },
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
@@ -33,7 +33,7 @@ Comment.init(
         key: 'username',
       },
     },
-    postId: {
+    post_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'post',

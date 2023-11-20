@@ -1,62 +1,41 @@
 const router = require('express').Router();
-const { Post, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Post } = require('../../models');
 
-router.get('/:id', withAuth, async (req, res) => {
+router.post('/new', async (req, res) => {
   try {
-    console.log('SINGLE POST GET REQUEST RECEIVED');
-    const post = await Post.findByPk(req.params.id);
-    const comments = await Comment.findAll({ where: { postId: req.params.id } });
-    console.log('Post', post);
-    console.log('Comments', comments);
+    console.log('NEW POST REQUEST RECEIVED');
 
-    if (!post) {
-      return console.log('Something went wrong. Please try again.');
-    }
+    const { postTitle, postBody } = req.body;
+    const { username, user_id } = req.session;
 
-
-
-    res.render('full-post', {
-      post,
-      comments,
-      loggedIn: req.session.loggedIn,
-      username: req.session.username,
+    const newPost = await Post.create({
+      postTitle: postTitle,
+      postText: postBody,
+      user_name: username,
+      user_id: user_id
     });
+
+    return res.status(200).json(newPost.id);
   } catch (err) {
+    console.error('Error creating new post:', err);
     res.status(500).json(err);
   }
 });
 
-router.get('/edit/:id', async (req, res) => {
-  try {
-    console.log('EDIT GET REQUEST RECEIVED');
-    const post = await Post.findByPk(req.params.id);
-    console.log('Post:', post);
-
-    if (!post) {
-      console.log('Post not found. Please check the ID.');
-      return res.status(404).send('Post not found');
-    }
-
-    res.render('edit-post', {
-      post,
-    });
-  } catch (err) {
-    console.error('Error: ', err);
-    res.status(500).send('Internal Server Error');
-  }
-});
-
+// Route to handle the update of a specific post
 router.put('/edit/:id', async (req, res) => {
   try {
     console.log('EDIT PUT REQUEST RECEIVED');
 
+    // Extract title and body from the request body
     const { title, body } = req.body;
 
     console.log('Title:', title, 'Body:', body);
 
+    // Find the post by its primary key
     const post = await Post.findByPk(req.params.id);
 
+    // Check if the post exists
     if (!post) {
       console.log('Post not found. Please check the ID.');
       return res.status(404).send('Post not found');
@@ -64,6 +43,7 @@ router.put('/edit/:id', async (req, res) => {
 
     console.log('Post found:', post);
 
+    // Update the post with the new title and body
     const updatedPost = await post.update({
       postTitle: title,
       postText: body
@@ -71,19 +51,24 @@ router.put('/edit/:id', async (req, res) => {
 
     console.log('Post updated:', updatedPost);
 
+    // Respond with the updated post data
     res.status(200).json(updatedPost);
   } catch (err) {
+    // Respond with an error status and details if an issue occurs
     console.error('Error during edit:', err);
     res.status(500).json(err);
   }
 });
 
+// Route to handle the deletion of a specific post
 router.delete('/delete/:id', async (req, res) => {
   try {
     console.log('DELETE POST REQUEST RECEIVED');
 
+    // Find the post by its primary key
     const post = await Post.findByPk(req.params.id);
 
+    // Check if the post exists
     if (!post) {
       console.log('Post not found. Please check the ID.');
       return res.status(404).send('Post not found');
@@ -91,8 +76,10 @@ router.delete('/delete/:id', async (req, res) => {
 
     console.log('Post found:', post);
 
+    // Destroy the post and get the number of deleted rows
     const deletedRows = await post.destroy();
 
+    // Check if the post was successfully deleted
     if (deletedRows) {
       console.log('Post deleted successfully.');
       res.status(200).json({ message: 'Post deleted' });
@@ -101,9 +88,11 @@ router.delete('/delete/:id', async (req, res) => {
       res.status(404).json({ message: 'Post not found' });
     }
   } catch (err) {
+    // Respond with an error status and details if an issue occurs
     console.error('Error during delete:', err);
     res.status(500).json(err);
   }
 });
 
+// Export the router
 module.exports = router;

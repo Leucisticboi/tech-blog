@@ -1,13 +1,12 @@
 <div class="mui-row">
   <div class="mui-col-sm-10 mui-col-sm-offset-1">
     <div id="recent-posts"
-         class="mui--text-dark-secondary mui--text-body2">{{username}}'s Posts<button class="new-post-btn" class="new-post-btn" onclick="window.location.href='/newpost'">New
-        Post</button></div>
+         class="mui--text-dark-secondary mui--text-body2">{{username}}'s Posts</div>
     <div class="mui-divider"></div>
     <br>
     {{#if posts}}
     {{#each posts as |post|}}
-    {{> dash-post post=post}}
+    {{> prof-post post=post}}
     {{/each}}
     {{else}}
     <p>No posts available.</p>
@@ -20,12 +19,10 @@
     <br>
     {{#if comments}}
     {{#each comments as |comment|}}
-    {{> dash-comment comment=comment}}
+    {{> prof-comment comment=comment}}
     {{/each}}
     {{else}}
     <p>No comments available.</p>
     {{/if}}
   </div>
 </div>
-
-<script src="/js/edit-comment.js"></script>

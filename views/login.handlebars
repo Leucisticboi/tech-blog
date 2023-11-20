@@ -1,12 +1,15 @@
-<form id="login-form" class="mui-form">
-  <legend>Login</legend>
+<form id="login-form" class="mui-form form">
+  <h2 class="drk-pink">Login</h2>
   <div class="mui-textfield">
     <input id="login-email" type="email" placeholder="Email" required>
   </div>
   <div class="mui-textfield">
     <input id="login-password" type="password" placeholder="Password" required>
   </div>
-  <button type="submit" class="mui-btn mui-btn--raised">Submit</button>
+  <div class="flex-row">
+    <button type="submit" class="mui-btn mui-btn--raised">Submit</button>
+    <button onclick="window.location.href='/signup'" class="mui-btn mui-btn--raised">Sign Up</button>
+  </div>
 </form>
 
-<script src="/js/loginsignup.js"></script>
+<script src="/js/login.js"></script>

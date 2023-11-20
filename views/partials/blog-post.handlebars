@@ -1,12 +1,16 @@
 <div id="blog-post">
   <div id="blog-title"
-       class="mui--text-headline"><a href="/api/blog/{{id}}">{{postTitle}}</a></div>
+       class="mui--text-headline"><a href="/blog/{{id}}">{{postTitle}}</a></div>
   <div id="title-user"
        class="mui--text-dark-secondary">
-    By <a href="/api/blog/users/{{userId}}">{{user_name}}</a>
+    By <a href="/profile/{{user_id}}">{{user_name}}</a>
   </div>
   <div>
+    {{#if postText}}
     {{shortPost postText}}
-    <a href="/api/blog/{{id}}">Read more...</a>
+    <a href="/blog/{{id}}">Read more...</a>
+    {{else}}
+    <p>No post content available</p>
+    {{/if}}
   </div>
 </div>

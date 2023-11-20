@@ -33,7 +33,7 @@ Post.init(
         key: 'username',
       },
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',

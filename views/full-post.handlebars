@@ -1,50 +1,67 @@
 <div id="bp-full">
-  <div id="bp-title"
-       class="mui--text-headline">{{post.dataValues.postTitle}}
-    <button id="edit-btn"
-            onclick="window.location.href='/api/blog/edit/{{post.dataValues.id}}';">Edit</button>
+  <div class="flex-row">
+    <div id="bp-title"
+         class="mui--text-headline">{{post.dataValues.postTitle}}
+    </div>
+    {{#equal username post.dataValues.user_name}}
+    <button class="edit-btn"
+            onclick="window.location.href='/blog/edit/{{../post.dataValues.id}}';">Edit</button>
+    {{/equal}}
   </div>
   <div id="title-user"
        class="mui--text-dark-secondary">
-    By <a href="api/blog/users/{{post.dataValues.userId}}">{{post.dataValues.user_name}}</a> at
+    By <a href="api/blog/users/{{post.dataValues.user_id}}">{{post.dataValues.user_name}}</a> at
     {{post.dataValues.updatedAt}}
   </div>
   <div>
     {{post.dataValues.postText}}
   </div>
+  <br>
+  <div class="mui-divider"></div>
 
-  <div id="comments-section">
-    <h3>Comments</h3>
-    {{#if comments.length}}
-    <ul>
-      <div class="mui-divider"></div>
-      {{#each comments}}
-      <br>
-      <li>
-        <strong>{{this.dataValues.user_name}}</strong>: {{this.dataValues.commentText}}
-      </li>
-      <br>
-      <div class="mui-divider"></div>
-      {{/each}}
-      <li>
-        <div class="flex-row mui-textfield">
-        <input type="text"
-              id="new-comment"
-              placeholder="New Comment">
-        <button type="submit"
-                class="mui-btn mui-btn--raised">Submit</button>
-      </div>
-      </li>
-    </ul>
-    {{else}}
-    <p>No comments yet.</p>
-    <div class="flex-row mui-textfield mui-textfield--float-label">
-      <input type="text"
-             id="new-comment"
-             placeholder="New Comment">
-      <button type="submit"
-              class="mui-btn mui-btn--raised">Submit</button>
+  <div>
+    <h3 class="comments-title">Comments</h3>
+    <div id="comments-section"
+         style="display: {{initialState}};">
+      {{#if comments.length}}
+      <ul>
+        <br>
+        {{#each comments}}
+        <li>
+          <strong class="comment-user">{{this.dataValues.user_name}}:</strong>
+          <div class="comment-text">
+            {{this.dataValues.commentText}}
+          </div>
+        </li>
+        {{/each}}
+        <li>
+          <form id="comment-form"
+                class="mui-form--inline">
+            <div class="mui-textfield mui-textfield--float-label">
+              <input id="new-comment"
+                     type="text">
+              <label>New Comment</label>
+            </div>
+            <button id="submit-btn"
+                    class="mui-btn">submit</button>
+          </form>
+        </li>
+      </ul>
+      {{else}}
+      <p>No comments yet.</p>
+      <form id="comment-form"
+            class="mui-form--inline">
+        <div class="mui-textfield mui-textfield--float-label">
+          <input id="new-comment"
+                 type="text">
+          <label>New Comment</label>
+        </div>
+        <button id="submit-btn"
+                class="mui-btn">submit</button>
+      </form>
+      {{/if}}
     </div>
-    {{/if}}
   </div>
 </div>
+
+<script src="/js/comments.js"></script>

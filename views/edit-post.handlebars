@@ -1,15 +1,15 @@
-<form id="post-edit-form" class="mui-form" action="/api/blog/edit/{{post.dataValues._id}}" method="PUT">
-  <legend>Edit Post</legend>
+<form id="post-edit-form" class="mui-form form" action="/api/blog/edit/{{post.dataValues._id}}" method="PUT">
+  <h2 class="drk-pink">Edit Post</h2>
   <div class="mui-textfield">
-    <input id="edit-title" type="text">
+    <input id="edit-title" type="text" placeholder="{{post.dataValues.postTitle}}">
     <label>Title</label>
   </div>
   <div class="mui-textfield">
-    <textarea id="edit-body"></textarea>
+    <textarea id="edit-body" placeholder="{{post.dataValues.postText}}"></textarea>
     <label>Body</label>
   </div>
   <div class="flex-row">
-    <button type="submit" class="mui-btn mui-btn--raised">Submit</button>
+    <button type="submit" id="submit-btn" class="mui-btn mui-btn--raised">Submit</button>
     <button type="button" id="delete-post" class="mui-btn mui-btn--raised">Delete Post</button>
   </div>
 </form>

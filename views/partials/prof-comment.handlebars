@@ -1,0 +1,15 @@
+<div class="comment">
+  <div>
+    <div class="flex-row">
+      <a class="drk-pink comment-post"
+           href="/blog/{{this.dataValues.post_id}}">See Original Post</a>
+    </div>
+    {{#if this.dataValues.commentText}}
+    <div class="comment-text">
+      {{shortPost this.dataValues.commentText}}
+    </div>
+    {{else}}
+    <p>No comment available</p>
+    {{/if}}
+  </div>
+</div>

@@ -6,8 +6,21 @@ module.exports = {
     return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear() + 5}`;
   },
   shortPost: str => {
-    const first50 = str.slice(0, 100);
-    return first50;
+    if (typeof str === 'string') {
+      const first100 = str.slice(0, 100);
+      return first100;
+    }
+    return 'No content available';
   },
+  equal: (lvalue, rvalue, options) => {
+    if (arguments.length < 3) {
+      throw new Error('Helper needs 2 parameters');
+    }
+    if (lvalue != rvalue) {
+      return options.inverse(this);
+    } else {
+      return options.fn(this);
+    }
+  }
 };
 

@@ -10,28 +10,11 @@
     <title>Tech Time</title>
   </head>
   <body>
-    <div id="sidebar">
-      <div class="mui--text-light mui--text-display1 mui--align-vertical">Tech Time</div>
-      {{#if loggedIn}}
-      <button id="logout-btn">
-        Logout
-      </button>
-      <button id="user-btn" onclick="window.location.href = '/profile';">
-        {{username}}'s Dashboard
-      </button>
-      {{else}}
-      <button id="home-btn" onclick="window.location.href = '/';">
-        Home
-      </button>
-      <button id="login-btn" onclick="window.location.href = '/login';">
-        Login
-      </button>
-      {{/if}}
-    </div>
+    {{> navbar}}
     <div id="content" class="mui-container-fluid">
       {{{body}}}
     </div>
     <div class=""></div>
-    <script src="/js/logout.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>

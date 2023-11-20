@@ -1,0 +1,12 @@
+<div id="blog-post">
+  <div id="blog-title"
+       class="mui--text-headline"><a href="/blog/{{this.dataValues.id}}">{{this.dataValues.postTitle}}</a></div>
+  <div>
+    {{#if this.dataValues.postText}}
+    {{shortPost this.dataValues.postText}}
+    <a href="/api/blog/{{this.dataValues.id}}">Read more...</a>
+    {{else}}
+    <p>No post content available</p>
+    {{/if}}
+  </div>
+</div>

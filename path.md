@@ -2,11 +2,11 @@
 
   [X] Homepage
 
-  [/] Navbar
+  [X] Navbar
 
-    [x] Home
+    [X] Home
 
-    [] Dashboard
+    [X] Dashboard
 
     [X] Logout
 
@@ -14,9 +14,9 @@
 
     [O] Check password
 
-  [] Sign-up
+  [X] Sign-up
 
-    [] Sign up new user
+    [X] Sign up new user
 
   [X] Update post
 
@@ -26,15 +26,15 @@
 
   [] Dashboard
 
-    [] Render posts (desc order)
+    [X] Render posts (desc order)
 
-    [] Edit post button
+    [X] Edit post button
 
-    [] New post button
+    [X] New post button
 
-  [] New Post
+  [X] New Post
 
-    [] Post
+    [X] Post
 
   [] Single Post
 
@@ -44,7 +44,7 @@
 
       [X] View comments
 
-      [] Post new comment
+      [X] Post new comment
 
       [] Edit comment
 

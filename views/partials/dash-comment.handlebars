@@ -1,0 +1,21 @@
+<div class="comment">
+  <input class="comment-id" value="{{this.dataValues.id}}" hidden>
+  <div>
+    <div class="flex-row">
+      <a class="drk-pink comment-post"
+           href="/blog/{{this.dataValues.post_id}}">See Original Post</a>
+        <button class="edit-btn">Edit</button>
+    </div>
+    {{#if this.dataValues.commentText}}
+    <div class="comment-text">
+      {{shortPost this.dataValues.commentText}}
+    </div>
+    <form id="edit-comment-form">
+        <input type="text" id="edited-comment" value="{{this.dataValues.commentText}}">
+        <button type="submit">Submit</button>
+    </form>
+    {{else}}
+    <p>No comment available</p>
+    {{/if}}
+  </div>
+</div>

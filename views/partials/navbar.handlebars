@@ -1,0 +1,25 @@
+<div id="sidebar">
+  <div class="mui--text-light mui--text-display1 mui--align-vertical">Tech Time</div>
+  {{#if loggedIn}}
+  <button id="home-btn"
+          onclick="window.location.href = '/';">
+    Home
+  </button>
+  <button id="user-btn"
+          onclick="window.location.href = '/dashboard/{{username}}';">
+    Dashboard
+  </button>
+  <button id="logout-btn">
+    Logout
+  </button>
+  {{else}}
+  <button id="home-btn"
+          onclick="window.location.href = '/';">
+    Home
+  </button>
+  <button id="login-btn"
+          onclick="window.location.href = '/login';">
+    Login
+  </button>
+  {{/if}}
+</div>
