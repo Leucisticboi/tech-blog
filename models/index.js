@@ -1,4 +1,4 @@
-const { User }= require('./user.js');
+import { User } from './user.js';
 const { Post } = require('./post.js');
 const { Comment } = require('./comment.js');
 
