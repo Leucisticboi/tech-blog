@@ -15,7 +15,7 @@ router.post('/new', async (req, res) => {
       user_id: user_id
     });
 
-    return res.status(200).json(newPost.id);
+    return res.status(200).json(username);
   } catch (err) {
     console.error('Error creating new post:', err);
     res.status(500).json(err);
@@ -65,6 +65,8 @@ router.delete('/delete/:id', async (req, res) => {
   try {
     console.log('DELETE POST REQUEST RECEIVED');
 
+    const username = req.session.username;
+
     // Find the post by its primary key
     const post = await Post.findByPk(req.params.id);
 
@@ -82,7 +84,7 @@ router.delete('/delete/:id', async (req, res) => {
     // Check if the post was successfully deleted
     if (deletedRows) {
       console.log('Post deleted successfully.');
-      res.status(200).json({ message: 'Post deleted' });
+      res.status(200).json(username);
     } else {
       console.log('Post not deleted. No matching record found.');
       res.status(404).json({ message: 'Post not found' });

@@ -1,12 +1,12 @@
 <div class="mui-row">
   <div class="mui-col-sm-10 mui-col-sm-offset-1">
     <div id="recent-posts"
-         class="mui--text-dark-secondary mui--text-body2">{{username}}'s Posts</div>
+         class="mui--text-dark-secondary mui--text-body2">{{this.profileOwner}}'s Posts</div>
     <div class="mui-divider"></div>
     <br>
     {{#if posts}}
     {{#each posts as |post|}}
-    {{> prof-post post=post}}
+    {{> dash-post post=post}}
     {{/each}}
     {{else}}
     <p>No posts available.</p>
@@ -14,7 +14,7 @@
   </div>
   <div class="mui-col-sm-10 mui-col-sm-offset-1">
     <div id="recent-posts"
-         class="mui--text-dark-secondary mui--text-body2">{{username}}'s Comments</div>
+         class="mui--text-dark-secondary mui--text-body2">{{this.profileOwner}}'s Comments</div>
     <div class="mui-divider"></div>
     <br>
     {{#if comments}}

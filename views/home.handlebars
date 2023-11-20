@@ -2,21 +2,18 @@
   <div class="mui-col-sm-10 mui-col-sm-offset-1">
     <br>
     <br>
-    {{#if loggedIn}}
-      <div id="recent-posts" class="mui--text-dark-secondary mui--text-body2">RECENT POSTS<button class="new-post-btn" onclick="window.location.href='/newpost'">New Post</button></div>
-      <div class="mui-divider"></div>
-      <br>
-      {{#each posts as |post|}}
-      {{> blog-post post=post}}
-      {{/each}}
-    {{else}}
-      <div id="pinned-posts" class="mui--text-dark-secondary mui--text-body2">PINNED POST<button class="new-post-btn" class="new-post-btn" onclick="window.location.href='/newpost'">New Post</button></div>
-      <div class="mui-divider"></div>
-      <br>
-      {{#with posts.[0] as |yost|}}
-      {{> blog-post}}
-      {{/with}}
-    {{/if}}
+    <div id="recent-posts"
+         class="mui--text-dark-secondary mui--text-body2">RECENT POSTS
+         {{#if loggedIn}}
+         <button class="new-post-btn"
+              onclick="window.location.href='/newpost'">New Post</button>
+          {{/if}}
+    </div>
+    <div class="mui-divider"></div>
+    <br>
+    {{#each posts as |post|}}
+    {{> blog-post post=post}}
+    {{/each}}
   </div>
 </div>
 

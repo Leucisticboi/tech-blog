@@ -18,8 +18,10 @@ const loginFormHandler = async (event) => {
 
     // Check if the server responded with a success status
     if (response.ok) {
+      const username = response.json();
+      
       // Redirect to the home page after successful login
-      document.location.replace('/');
+      document.location.replace(`/dashboard/${username}`);
     } else {
       // Log and return an error message if login fails
       return console.log('Failed to log in');

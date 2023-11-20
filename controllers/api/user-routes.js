@@ -41,6 +41,12 @@ router.post('/login', async (req, res) => {
       }
     });
 
+    console.log(dbUserData);
+
+    const username = dbUserData.username;
+
+    console.log('USERNAME:', username)
+
     // Check if the user exists
     if (!dbUserData) {
       console.log('Invalid email');
@@ -50,10 +56,10 @@ router.post('/login', async (req, res) => {
     // Save user details in the session and respond with success
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.username = dbUserData.username;
+      req.session.username = username;
       req.session.user_id = dbUserData.id;
 
-      res.status(200).json({ message: 'Logged in!' });
+      res.status(200).json(username);
     });
   } catch (err) {
     // Respond with an error status and details if an issue occurs during login

@@ -48,15 +48,15 @@ router.get('/newpost', withAuth, (req, res) => {
 });
 
 router.get('/profile/:id', withAuth, async (req, res) => {
-  const userId = req.params.id;
-
-  const profileUser = await User.findByPk(userId);
+  const profileUser = await User.findByPk(req.params.id);
   const profileUsername = profileUser.username;
 
   const posts = await Post.findAll({
     where: {
       user_name: profileUsername
-    }
+    },
+    order: [['createdAt', 'DESC']],
+    raw: true
   }) || [];
 
   const comments = await Comment.findAll({
@@ -73,7 +73,7 @@ router.get('/profile/:id', withAuth, async (req, res) => {
   }) || [];
 
   return res.render('profile', {
-    title: `${userId}`,
+    title: `${profileUsername}`,
     posts,
     comments,
     profileOwner: profileUsername,
@@ -83,7 +83,7 @@ router.get('/profile/:id', withAuth, async (req, res) => {
 });
 
 // Route to retrieve a single post and its comments
-router.get('/blog/:id', withAuth, async (req, res) => {
+router.get('/blog/:id', async (req, res) => {
   try {
     console.log('SINGLE POST GET REQUEST RECEIVED');
 
@@ -146,7 +146,7 @@ router.get('/blog/edit/:id', withAuth, async (req, res) => {
 
 router.get('/dashboard/:username', withAuth, async (req, res) => {
   try {
-    const username = req.params.username;
+    const username = req.session.username;
 
     const posts = await Post.findAll({
       where: {

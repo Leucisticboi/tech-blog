@@ -16,11 +16,9 @@ const newPostHandler = async (event) => {
       });
 
       if (response.ok) {
-        const postId = await response.json();
+        const username = await response.json();
 
-        console.log(postId);
-
-        document.location.replace(`/blog/${postId}}`);
+        document.location.replace(`/dashboard/username`);
       } else {
         return alert('Failed to create new post.');
       }

@@ -10,8 +10,8 @@
   </div>
   <div id="title-user"
        class="mui--text-dark-secondary">
-    By <a href="api/blog/users/{{post.dataValues.user_id}}">{{post.dataValues.user_name}}</a> at
-    {{post.dataValues.updatedAt}}
+    By {{post.dataValues.user_name}} on
+    {{format_date post.dataValues.updatedAt}}
   </div>
   <div>
     {{post.dataValues.postText}}
@@ -21,8 +21,7 @@
 
   <div>
     <h3 class="comments-title">Comments</h3>
-    <div id="comments-section"
-         style="display: {{initialState}};">
+    <div id="comments-section">
       {{#if comments.length}}
       <ul>
         <br>

@@ -15,7 +15,7 @@ const editFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace(`/api/blog/${postId}`);
+      document.location.replace(`/blog/${postId}`);
     } else {
       console.log('Failed to update the post. Server response:', response);
     }
@@ -33,7 +33,8 @@ const deletePost = async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace(`/`);
+    const username = response.json();
+    document.location.replace(`/dashboard/${username}`);
   } else {
     console.log('Failed to delete the post');
   }

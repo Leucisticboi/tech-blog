@@ -98,6 +98,10 @@ button {
   margin-bottom: 0.5%;
 }
 
+.comment-user {
+  text-decoration: none;
+}
+
 #title-user {
   margin-bottom: 1%;
 }

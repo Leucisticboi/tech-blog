@@ -3,7 +3,7 @@
        class="mui--text-headline"><a href="/blog/{{id}}">{{postTitle}}</a></div>
   <div id="title-user"
        class="mui--text-dark-secondary">
-    By <a href="/profile/{{user_id}}">{{user_name}}</a>
+    By {{user_name}} on {{format_date createdAt}}
   </div>
   <div>
     {{#if postText}}
