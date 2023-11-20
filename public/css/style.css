@@ -13,6 +13,10 @@ button {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
 
+.mui-textfield {
+  width: 70%;
+}
+
 #sidebar {
   display: flex;
   flex-direction: column;
@@ -22,6 +26,85 @@ button {
   padding: 15px;
 }
 
+#blog-post {
+  border-color: #e06196;
+  border-width: 5px;
+  border-style: solid;
+  padding: 2%;
+  margin-bottom: 7%;
+  border-radius: 15px;
+}
+
+#bp-full {
+  border-color: #e06196;
+  border-width: 5px;
+  border-style: solid;
+  padding: 2%;
+  margin: 10%;
+  border-radius: 15px;
+}
+
+#bp-title {
+  display: flex;
+  flex-direction: row;
+  color: #e06196;
+  margin-bottom: 0.5%;
+  justify-content: space-between;
+}
+
+#blog-title,
+#blog-title a {
+  color: #e06196;
+  margin-bottom: 0.5%;
+}
+
+#title-user {
+  margin-bottom: 1%;
+}
+
+#recent-posts,
+#pinned-posts {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 8%;
+}
+
+#login-form,
+#post-edit-form {
+  padding: 10%;
+}
+
+#new-post-btn {
+  border-color: #e06196;
+  color: white;
+  background-color: #f5a4c4;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 15px;
+  padding: 1%;
+  margin-bottom: 1%;
+}
+
+#edit-btn {
+  font-size: small;
+  background-color: #f5a4c5;
+  color: white;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #e06196;
+}
+
+#edit-btn:hover {
+  background-color: #e06196;
+}
+
+#new-post-btn:hover {
+  background-color: white;
+  color: #e06196;
+  border-color: #e06196;
+}
 
 #home-btn,
 #login-btn,
@@ -33,6 +116,7 @@ button {
   background-color: white;
   border-width: 3px;
   border-style: solid;
+  border-radius: 15px;
   margin: 10%;
   padding: 10%;
 }
@@ -45,25 +129,20 @@ button {
   background-color: #f5a4c4;
 }
 
-#blog-post {
-  border-color: #f5a4c5;
-  border-width: 3px;
-  border-bottom-style: solid;
-  padding: 2%;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-#blog-title,
-#blog-title a {
-  color: #e06196;
+#delete-post {
+  color: red;
+  border-color: red;
 }
 
-#recent-posts,
-#pinned-posts {
-  margin-top: 8%;
-}
-
-#login-form {
-  padding: 10%;
+ul {
+  list-style: none;
 }
 
 @media (min-width: 768px) {

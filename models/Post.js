@@ -15,14 +15,14 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8, 40],
+        len: [1, 40],
       },
     },
     postText: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [25, 280],
+        len: [1, 1500],
       },
     },
     user_name: {
@@ -40,10 +40,6 @@ Post.init(
         key: 'id',
       },
     },
-    // timestamp: {
-    //   type: DataTypes.DATE,
-    //   defaultValue: DataTypes.literal('CURRENT_TIMESTAMP'),
-    // },
   },
   {
     sequelize,

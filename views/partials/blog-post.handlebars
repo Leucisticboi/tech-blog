@@ -1,18 +1,12 @@
-{{#if loggedIn}}
-<div id="recent-posts" class="mui--text-dark-secondary mui--text-body2">RECENT POSTS</div>
-<div class="mui-divider"></div>
-<br>
-{{else}}
-<div id="pinned-posts" class="mui--text-dark-secondary mui--text-body2">PINNED POST</div>
-<div class="mui-divider"></div>
-<br>
-{{/if}}
 <div id="blog-post">
   <div id="blog-title"
-       class="mui--text-headline"><a href="/blog/{{id}}">{{postTitle}}</a></div>
-  <div class="mui--text-dark-secondary">By <a href="/blog/users/{{userId}}">{{user_name}}</a></div>
+       class="mui--text-headline"><a href="/api/blog/{{id}}">{{postTitle}}</a></div>
+  <div id="title-user"
+       class="mui--text-dark-secondary">
+    By <a href="/api/blog/users/{{userId}}">{{user_name}}</a>
+  </div>
   <div>
-    {{postText}}
-    <a href="/blog/{{id}}">Read more...</a>
+    {{shortPost postText}}
+    <a href="/api/blog/{{id}}">Read more...</a>
   </div>
 </div>

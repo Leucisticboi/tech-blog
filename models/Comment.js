@@ -25,6 +25,14 @@ Comment.init(
         key: 'id',
       },
     },
+    user_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'username',
+      },
+    },
     postId: {
       type: DataTypes.INTEGER,
       references: {
@@ -32,10 +40,6 @@ Comment.init(
         key: 'id',
       },
     },
-    // timestamp: {
-    //   type: DataTypes.DATE,
-    //   defaultValue: DataTypes.literal('CURRENT_TIMESTAMP'),
-    // },
   },
   {
     sequelize,

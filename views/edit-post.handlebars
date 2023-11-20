@@ -1,0 +1,17 @@
+<form id="post-edit-form" class="mui-form" action="/api/blog/edit/{{post.dataValues._id}}" method="PUT">
+  <legend>Edit Post</legend>
+  <div class="mui-textfield">
+    <input id="edit-title" type="text">
+    <label>Title</label>
+  </div>
+  <div class="mui-textfield">
+    <textarea id="edit-body"></textarea>
+    <label>Body</label>
+  </div>
+  <div class="flex-row">
+    <button type="submit" class="mui-btn mui-btn--raised">Submit</button>
+    <button type="button" id="delete-post" class="mui-btn mui-btn--raised">Delete Post</button>
+  </div>
+</form>
+
+<script src="/js/edit-post.js"></script>
