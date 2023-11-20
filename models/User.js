@@ -48,4 +48,4 @@ User.init(
   }
 );
 
-module.exports = { User };
+module.exports = { User, };
