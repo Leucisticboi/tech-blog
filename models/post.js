@@ -15,7 +15,7 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 40],
+        len: [1, 75],
       },
     },
     postText: {
