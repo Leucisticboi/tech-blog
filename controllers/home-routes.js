@@ -93,13 +93,13 @@ router.get('/blog/:id', async (req, res) => {
     // Find all comments associated with the post
     const comments = await Comment.findAll({ where: { post_id: req.params.id } });
 
-    console.log('Post', post);
-    console.log('Comments', comments);
-
     // Check if the post exists
     if (!post) {
       return console.log('Something went wrong. Please try again.');
     }
+
+    // Replace the newline characters with HTML line breaks in postText
+    post.postText = post.postText.replace(/\r?\n/g, '<br />');
 
     // Render the full-post view with post and comments data
     res.render('full-post', {
