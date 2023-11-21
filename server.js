@@ -8,6 +8,9 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 
+console.log(path.resolve(__dirname, './controllers/api/user-routes.js'));
+console.log(path.resolve(__dirname, './models/user.js'));
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
