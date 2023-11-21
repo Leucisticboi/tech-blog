@@ -4,8 +4,7 @@
   "description": "## Directory",
   "main": "server.js",
   "engines": {
-    "npm": "10.2.4",
-    "node": "20.8.1"
+    "node": "16.x.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
