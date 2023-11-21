@@ -34,6 +34,7 @@
         </li>
         {{/each}}
         <li>
+          {{#if loggedIn}}
           <form id="comment-form"
                 class="mui-form--inline">
             <div class="mui-textfield mui-textfield--float-label">
@@ -44,6 +45,7 @@
             <button id="submit-btn"
                     class="mui-btn">submit</button>
           </form>
+          {{/if}}
         </li>
       </ul>
       {{else}}
