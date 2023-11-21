@@ -51,8 +51,10 @@ const loginToComment = async () => {
   }
 }
 
-// Attach the newCommentHandler function to the form submission event
-document.querySelector('#comment-form').addEventListener('submit', newCommentHandler);
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Attach the newCommentHandler function to the form submission event
+  document.querySelector('#comment-form').addEventListener('submit', newCommentHandler);
 
-// Attach the loginToComment function to the login button click event
-document.querySelector('#login-to-comment').addEventListener('click', loginToComment);
+  // Attach the loginToComment function to the login button click event
+  document.querySelector('#login-to-comment').addEventListener('click', loginToComment);
+});
