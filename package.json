@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "heroku-prebuild": "npm install -f",
+    "heroku-prebuild": "npm install -f"
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
