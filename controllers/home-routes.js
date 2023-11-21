@@ -99,7 +99,7 @@ router.get('/blog/:id', async (req, res) => {
     }
 
     // Replace the newline characters with HTML line breaks in postText
-    post.postText = post.postText.replace(/\r?\n/g, '<br />');
+    post.dataValues.postText = post.dataValues.postText.replace(/\r?\n/g, '<br />');
 
     // Render the full-post view with post and comments data
     res.render('full-post', {
