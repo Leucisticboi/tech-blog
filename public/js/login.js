@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
 
     // Check if the server responded with a success status
     if (response.ok) {
-      const username = response.json();
+      const username = await response.json();
       
       // Redirect to the home page after successful login
       document.location.replace(`/dashboard/${username}`);
@@ -33,4 +33,3 @@ const loginFormHandler = async (event) => {
 document
   .querySelector('#login-form')
   .addEventListener('submit', loginFormHandler);
-

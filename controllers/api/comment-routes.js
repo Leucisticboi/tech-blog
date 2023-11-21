@@ -51,5 +51,30 @@ router.post('/new', withAuth, async (req, res) => {
   }
 });
 
+// Route to delete a comment
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    // Log the receipt of a delete comment request
+    console.log('DELETE COMMENT REQUEST RECEIVED');
+
+    // Retrieve the comment ID from the request parameters
+    const commentId = req.params.id;
+
+    // Delete the comment from the database
+    const comment = await Comment.destroy({
+      where: {
+        id: commentId,
+      },
+    });
+
+    // Respond with a success message and the deleted comment
+    res.status(200).json({ message: 'Comment deleted!', comment });
+  } catch (err) {
+    // Log and respond with an error if there is an issue deleting the comment
+    console.error('Error deleting comment: ', err);
+    res.status(500).json(err);
+  }
+});
+
 // Export the router
 module.exports = router;

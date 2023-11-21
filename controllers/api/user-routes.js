@@ -43,9 +43,7 @@ router.post('/login', async (req, res) => {
 
     console.log(dbUserData);
 
-    const username = dbUserData.username;
-
-    console.log('USERNAME:', username)
+    const { username } = dbUserData.dataValues;
 
     // Check if the user exists
     if (!dbUserData) {

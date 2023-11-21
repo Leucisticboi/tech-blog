@@ -28,8 +28,10 @@
         {{#each comments}}
         <li>
           <strong class="comment-user">{{this.dataValues.user_name}}:</strong>
-          <div class="comment-text">
-            {{this.dataValues.commentText}}
+          <div class="flex-row">
+            <div class="comment-text" id="{{this.dataValues.id}}">
+              {{this.dataValues.commentText}}
+            </div>
           </div>
         </li>
         {{/each}}
@@ -46,7 +48,7 @@
                     class="mui-btn">submit</button>
           </form>
           {{else}}
-          <p><a href="/login"></a>Log in to comment.</p>
+          <p><a href="/login" id="login-to-comment">Log in to comment.</a></p>
           {{/if}}
         </li>
       </ul>

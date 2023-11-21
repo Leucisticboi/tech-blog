@@ -32,5 +32,27 @@ const newCommentHandler = async (req, res) => {
   }
 }
 
+// Create a request to login to comment
+const loginToComment = async () => {
+  try {
+    const response = await fetch('/login', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      res.status(200).json({ message: 'Login successful!' });
+    } else {
+      return console.log('Failed to login');
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+}
+
 // Attach the newCommentHandler function to the form submission event
 document.querySelector('#comment-form').addEventListener('submit', newCommentHandler);
+
+// Attach the loginToComment function to the login button click event
+document.querySelector('#login-to-comment').addEventListener('click', loginToComment);
