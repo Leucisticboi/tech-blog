@@ -7,10 +7,10 @@
     "node": "16.x.x"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "heroku-prebuild": "npm install -f",
-    "heroku-postbuild": "npm run prod"
+    "heroku-postbuild": "npm run prod",
+    "prod": "node server.js"
   },
   "keywords": [],
   "author": "",
