@@ -8,10 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "reset-db": "mysql -u root -p    < db/schema.sql",
     "start": "node server.js",
-    "seed": "node seeds/index.js",
-    "depend": "npm i connect-session-sequelize -P && npm i dotenv -P && npm i express -P && npm i express express-handlebars -P && npm i express express-session -P && npm i express handlebars -P && npm i mysql2 -P && npm i sequelize -P"
+    "heroku-prebuild": "npm install -f",
+    "heroku-postbuild": "npm run prod"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +28,7 @@
     "express-session": "^1.17.3",
     "handlebars": "^4.7.8",
     "mysql2": "^3.6.3",
-    "sequelize": "^6.35.1"
+    "sequelize": "^6.35.1",
+    "serve": "^14.2.1"
   }
 }
