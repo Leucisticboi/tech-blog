@@ -8,6 +8,8 @@ router.post('/new', async (req, res) => {
     const { postTitle, postBody } = req.body;
     const { username, user_id } = req.session;
 
+    const formattedPostBody = postBody.replace(/\r?\n/g, '<br>');
+
     const newPost = await Post.create({
       postTitle: postTitle,
       postText: postBody,
@@ -29,8 +31,6 @@ router.put('/edit/:id', async (req, res) => {
 
     // Extract title and body from the request body
     const { title, body } = req.body;
-
-    console.log('Title:', title, 'Body:', body);
 
     // Find the post by its primary key
     const post = await Post.findByPk(req.params.id);
