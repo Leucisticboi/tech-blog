@@ -52,6 +52,7 @@ const loginToComment = async () => {
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
+  event.preventDefault();
   // Attach the newCommentHandler function to the form submission event
   document.querySelector('#comment-form').addEventListener('submit', newCommentHandler);
 
