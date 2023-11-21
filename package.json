@@ -12,6 +12,10 @@
     "heroku-postbuild": "npm run prod",
     "prod": "node server.js"
   },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
