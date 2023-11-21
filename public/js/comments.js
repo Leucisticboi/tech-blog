@@ -1,6 +1,7 @@
 // Function to handle the submission of a new comment
-const newCommentHandler = async (req, res) => {
+const newCommentHandler = async (event) => {
   try {
+    event.preventDefault();
     // Retrieve the comment text from the input field and remove leading/trailing whitespaces
     const commentText = document.querySelector('#new-comment').value.trim();
 
@@ -33,8 +34,9 @@ const newCommentHandler = async (req, res) => {
 }
 
 // Create a request to login to comment
-const loginToComment = async () => {
+const loginToComment = async (event) => {
   try {
+    event.preventDefault();
     const response = await fetch('/login', {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
