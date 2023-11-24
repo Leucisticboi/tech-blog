@@ -1,20 +1,19 @@
 <div class="mui-row">
-  <div class="mui-col-sm-10 mui-col-sm-offset-1">
-    <br>
-    <br>
-    <div id="recent-posts"
-         class="mui--text-dark-secondary mui--text-body2">RECENT POSTS
-         {{#if loggedIn}}
-         <button class="new-post-btn"
-              onclick="window.location.href='/newpost'">New Post</button>
-          {{/if}}
+  <div>
+    <div class="mui-col-sm-10 mui-col-sm-offset-1">
+      <br>
+      <br>
+      <div id="recent-posts" class="mui--text-dark-secondary mui--text-body2">RECENT POSTS
+        {{#if loggedIn}}
+        <button class="new-post-btn" onclick="window.location.href='/newpost'">New Post</button>
+        {{/if}}
+      </div>
+      <div class="mui-divider"></div>
+      <br>
+      {{#each posts as |post|}}
+      {{> blog-post post=post}}
+      {{/each}}
     </div>
-    <div class="mui-divider"></div>
-    <br>
-    {{#each posts as |post|}}
-    {{> blog-post post=post}}
-    {{/each}}
-  </div>
 </div>
 
 <script src="/js/new-post.js"></script>
