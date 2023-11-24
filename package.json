@@ -7,7 +7,8 @@
     "node": "16.x.x"
   },
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "develop": "nodemon server.js",
     "heroku-prebuild": "npm install -f"
   },
   "production": {
