@@ -1,8 +1,12 @@
+// Import the Sequelize constructor and DataTypes from the library
 const { Model, DataTypes } = require('sequelize');
+// Import the database connection from config.js
 const sequelize = require('../config/connection');
 
+// Define a new Sequelize model for Post
 class Post extends Model {};
 
+// Set up fields and rules for Post model
 Post.init(
   {
     id: {
@@ -50,4 +54,5 @@ Post.init(
   }
 );
 
+// Export Post model
 module.exports = Post;

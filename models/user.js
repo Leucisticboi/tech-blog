@@ -1,9 +1,14 @@
+// Import the Sequelize constructor and DataTypes from the library
 const { Model, DataTypes } = require('sequelize');
+// Import the bcrypt library
 const bcrypt = require('bcrypt');
+// Import the database connection from config.js
 const sequelize = require('../config/connection');
 
+// Define a new Sequelize model for User
 class User extends Model {};
 
+// Set up fields and rules for User model
 User.init(
   {
     id: {
@@ -48,4 +53,5 @@ User.init(
   }
 );
 
+// Export User model
 module.exports = User;
