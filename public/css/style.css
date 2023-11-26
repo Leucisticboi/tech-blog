@@ -120,7 +120,7 @@ button {
 }
 
 .form {
-  padding: 10%;
+  padding: 10% !important;
 }
 
 .new-post-btn {
