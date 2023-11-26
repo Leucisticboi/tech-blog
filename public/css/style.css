@@ -275,7 +275,8 @@ ul {
   }
 
   #content {
-    margin-top: 25%;
+    margin-top: 22%;
+    margin-bottom: 22%;
     align-items: center;
     justify-items: flex;
     height: 100%;
