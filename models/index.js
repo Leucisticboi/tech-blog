@@ -1,7 +1,9 @@
+// Import required models
 const User = require('./user.js');
 const Post = require('./post.js');
 const Comment = require('./comment.js');
 
+// Define associations
 User.hasMany(Post, {
   foreignKey: 'user_id',
 });
@@ -28,4 +30,5 @@ Comment.belongsTo(Post, {
   as: 'post',
 });
 
+// Export models
 module.exports = { User, Post, Comment };

@@ -2,10 +2,13 @@ const router = require('express').Router();
 const { Comment } = require('../../models/index');
 const withAuth = require('../../utils/auth');
 
+// Route to get comments for a post
 router.get('/:id', async (req, res) => {
   try {
+    // Log the receipt of a get comments request
     const postId = req.params.id;
 
+    // Retrieve all comments for the post
     const comments = await Comment.findAll({
       where: {
         post_id: postId,
@@ -14,6 +17,7 @@ router.get('/:id', async (req, res) => {
       raw: true,
     });
 
+    // Respond with the comments
     res.status(200).json(comments);
   } catch (err) {
     console.error('Error fetching comments:', err);

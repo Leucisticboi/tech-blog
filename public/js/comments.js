@@ -36,21 +36,29 @@ const newCommentHandler = async (event) => {
 // Create a request to login to comment
 const loginToComment = async (event) => {
   try {
+    // Prevent the default form submission behavior
     event.preventDefault();
+
+    // Fetch login status from the server
     const response = await fetch('/login', {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
 
+    // Check if the response is successful (status code 200)
     if (response.ok) {
-      res.status(200).json({ message: 'Login successful!' });
+      // Log a success message if login is successful
+      console.log('Login successful!');
+      // You might want to redirect the user or perform other actions upon successful login
     } else {
-      return console.log('Failed to login');
+      // Log an error message if login fails
+      console.log('Failed to login');
     }
   } catch (err) {
+    // Log any unexpected errors during the login process
     console.error(err);
+    // Respond with a 500 status and send the error as JSON
     res.status(500).json(err);
-  }
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {

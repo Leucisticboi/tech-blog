@@ -2,13 +2,16 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Post, User, Comment } = require('../models');
 
+// Route to render the homepage
 router.get('/', async (req, res) => {
   try {
+    // Find all posts, ordered by their creation date
     const posts = await Post.findAll({ 
       order: [['createdAt', 'DESC']],
       raw: true 
     });
 
+    // Render the homepage with the posts data
     return res.render('home', {
       posts,
       loggedIn: req.session.loggedIn,
@@ -20,7 +23,9 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route to render the login page
 router.get('/login', (req, res) => {
+  // Check if a user is logged in
   if (req.session.loggedIn) {
     return res.redirect('/');
   }
@@ -29,17 +34,22 @@ router.get('/login', (req, res) => {
   });
 });
 
+// Route to render the signup page
 router.get('/signup', (req, res) => {
+  // Check if a user is logged in
   if (req.session.loggedIn) {
     return res.redirect('/');
   }
 
+  // Render the signup page if the user is not logged in
   return res.render('signup', {
     title: 'Sign Up'
   });
 });
 
+// Route to render the new post page
 router.get('/newpost', withAuth, (req, res) => {
+  // Render the 
   return res.render('new-post', {
     title: 'New Post',
     loggedIn: req.session.loggedIn,
@@ -47,10 +57,13 @@ router.get('/newpost', withAuth, (req, res) => {
   });
 });
 
+// Route to render the profile page for a specific user
 router.get('/profile/:id', withAuth, async (req, res) => {
+  // Find the user by its primary key
   const profileUser = await User.findByPk(req.params.id);
   const profileUsername = profileUser.username;
 
+  // Find all posts by the user of the ID
   const posts = await Post.findAll({
     where: {
       user_name: profileUsername
@@ -59,6 +72,7 @@ router.get('/profile/:id', withAuth, async (req, res) => {
     raw: true
   }) || [];
 
+  // Find all comments by the user of the same ID
   const comments = await Comment.findAll({
     where: {
       user_name: profileUsername
@@ -72,6 +86,7 @@ router.get('/profile/:id', withAuth, async (req, res) => {
     ],
   }) || [];
 
+  // Render profile page with posts and comments data
   return res.render('profile', {
     title: `${profileUsername}`,
     posts,
@@ -144,16 +159,20 @@ router.get('/blog/edit/:id', withAuth, async (req, res) => {
   }
 });
 
+// Route to render the edit-comment view for a specific comment
 router.get('/dashboard/:username', withAuth, async (req, res) => {
   try {
+    // Find the user by its primary key
     const username = req.session.username;
 
+    // Find all posts by the user of that ID
     const posts = await Post.findAll({
       where: {
         user_name: username
       }
     }) || [];
 
+    // Find all comments by the user of the same ID
     const comments = await Comment.findAll({
       where: {
         user_name: username
@@ -167,8 +186,7 @@ router.get('/dashboard/:username', withAuth, async (req, res) => {
       ],
     }) || [];
 
-    console.log(comments);
-
+    // Render the dashboard view with posts and comments data
     res.render('dashboard', {
       posts,
       comments,
@@ -176,9 +194,11 @@ router.get('/dashboard/:username', withAuth, async (req, res) => {
       username: req.session.username
     });
   } catch (err) {
+    // Respond with an error status and details if an issue occurs
     console.error(err);
     return res.status(500).json(err);
   }
 });
 
+// Export the router functions
 module.exports = router;

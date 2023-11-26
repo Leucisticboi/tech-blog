@@ -1,8 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+// Create a new Sequelize model for Model
 class Comment extends Model {};
 
+// Set up fields and rules for Comment model
 Comment.init(
   {
     id: {
@@ -50,4 +52,5 @@ Comment.init(
   }
 );
 
+// Export Comment model
 module.exports = Comment;

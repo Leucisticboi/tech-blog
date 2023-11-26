@@ -1,23 +1,26 @@
 const router = require('express').Router();
 const { Post } = require('../../models/index');
 
+// Post router for creating and storing a new post in the database.
 router.post('/new', async (req, res) => {
   try {
-    console.log('NEW POST REQUEST RECEIVED');
-
+    // Deconstruct variables from the request body and session
     const { postTitle, postBody } = req.body;
     const { username, user_id } = req.session;
 
+    // Format the post body to replace new lines with HTML line breaks
     const formattedPostBody = postBody.replace(/\r?\n/g, '<br>');
 
+    // Create a new post in the database
     const newPost = await Post.create({
       postTitle: postTitle,
-      postText: postBody,
+      postText: formattedPostBody,
       user_name: username,
       user_id: user_id
     });
 
-    return res.status(200).json(username);
+    // Respond with the new post data
+    return res.status(200).json(newPost);
   } catch (err) {
     console.error('Error creating new post:', err);
     res.status(500).json(err);
