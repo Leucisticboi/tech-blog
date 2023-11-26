@@ -214,9 +214,6 @@ ul {
 
 /* Set new styles for screens larger than 767px wide */
 @media only screen and (min-width: 768px) {
-  #login-form {
-    margin: 10%;
-  }
 
   #sidebar {
     position: fixed;
