@@ -7,6 +7,10 @@ const loginFormHandler = async (event) => {
   const email = document.querySelector('#login-email').value.trim();
   const password = document.querySelector('#login-password').value.trim();
 
+  // Log the values
+  console.log('Email:', email);
+  console.log('Password:', password);
+
   // Check if both email and password are provided
   if (email && password) {
     // Send a POST request to the server to log the user in
@@ -20,12 +24,16 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       const user = await response.json();
       const username = user.username;
-      
+
       // Redirect to the home page after successful login
       document.location.replace(`/dashboard/${username}`);
+
+      // Clear input fields
+      document.querySelector('#login-email').value = '';
+      document.querySelector('#login-password').value = '';
     } else {
       // Log and return an error message if login fails
-      return console.log('Failed to log in');
+      console.log('Failed to log in');
     }
   }
 }
@@ -34,3 +42,10 @@ const loginFormHandler = async (event) => {
 document
   .querySelector('#login-form')
   .addEventListener('submit', loginFormHandler);
+
+// Event listener to check for input events
+document
+  .querySelector('#login-form')
+  .addEventListener('input', (event) => {
+    console.log('Input Event:', event);
+  });
