@@ -19,14 +19,14 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 75],
+        len: [1, 100],
       },
     },
     postText: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [1, 1500],
+        len: [1, 10000],
       },
     },
     user_name: {
