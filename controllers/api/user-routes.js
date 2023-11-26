@@ -37,14 +37,9 @@ router.post('/login', async (req, res) => {
     // Find the user in the database based on the provided email
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email
-      }
+        email: req.body.email,
+      },
     });
-
-    console.log(dbUserData);
-
-    // Declare a variable to store the user name
-    const username = dbUserData.dataValues;
 
     // Check if the user exists
     if (!dbUserData) {
@@ -52,16 +47,22 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Incorrect email or password. Try again!' });
     }
 
+    // Declare a variable to store the user name
+    const username = dbUserData.dataValues.username;
+    console.log('Username:', username);
+
     // Save user details in the session and respond with success
     req.session.save(() => {
+      console.log('Session saved.');
       req.session.loggedIn = true;
       req.session.username = username;
       req.session.user_id = dbUserData.id;
 
-      res.status(200).json(username);
+      res.status(200).json({ username });
     });
   } catch (err) {
     // Respond with an error status and details if an issue occurs during login
+    console.error('Login error:', err);
     res.status(400).json(err);
   }
 });

@@ -36,7 +36,7 @@ const newCommentHandler = async (event) => {
 // Create a request to login to comment
 const loginToComment = async (event) => {
   try {
-    // Prevent the default form submission behavior
+    // Prevent the default button click behavior
     event.preventDefault();
 
     // Fetch login status from the server
@@ -57,12 +57,11 @@ const loginToComment = async (event) => {
   } catch (err) {
     // Log any unexpected errors during the login process
     console.error(err);
-    // Respond with a 500 status and send the error as JSON
-    res.status(500).json(err);
-}
+    // Handle the error appropriately (e.g., show a message to the user)
+  }
+};
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
   // Attach the newCommentHandler function to the form submission event
   document.querySelector('#comment-form').addEventListener('submit', newCommentHandler);
 
