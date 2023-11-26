@@ -276,7 +276,7 @@ ul {
 
   #content {
     margin-top: 22%;
-    margin-bottom: 22%;
+    margin-bottom: 22% !important;
     align-items: center;
     justify-items: flex;
     height: 100%;
